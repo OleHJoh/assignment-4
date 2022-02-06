@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CataloguePage implements OnInit {
 
-  constructor() { }
+  get pokemons(): Pokemon[] {
+    return this.pokemonService.pokemons;
+  }
+
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
+    this.pokemonService.getAllPokemons();
+  }
+
+  onCaptured(pokemon: Pokemon){
+    alert(pokemon.name + " was clicked")
   }
 
 }

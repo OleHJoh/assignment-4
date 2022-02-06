@@ -1,1 +1,6 @@
-<p>pokemon-list works!</p>
+<ul>
+    <li *ngFor="let pokemon of pokemons" (click)="onPokemonClicked(pokemon)">
+        <img [src]="" [alt]="pokemon.name">
+        <span>{{ pokemon.name }}</span>
+    </li>
+</ul>

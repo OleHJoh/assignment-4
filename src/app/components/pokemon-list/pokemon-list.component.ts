@@ -17,7 +17,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   onPokemonClicked(pokemon: Pokemon){
-    console.log("Pokemon clicked", pokemon.name);
+    console.log("Pokemon captured", pokemon.name);
     this.captured.emit(pokemon);
   }
 }

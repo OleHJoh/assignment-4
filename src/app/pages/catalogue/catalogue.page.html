@@ -1,1 +1,6 @@
-<app-pokemon-list [pokemons]="pokemons" (captured)="onCaptured($event)"></app-pokemon-list>
+<main class="container">
+    <h1>Pokemon</h1>
+    <p>Welcome {{ username }} to the pokemon catalogue</p>
+    <app-pokemon-list [pokemons]="pokemons" (captured)="onCaptured($event)"></app-pokemon-list>
+</main>
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -13,7 +14,13 @@ export class CataloguePage implements OnInit {
     return this.pokemonService.pokemons;
   }
 
-  constructor(private pokemonService: PokemonService) { }
+  get username(): string {
+    return this.userService.username;
+  }
+
+  constructor(
+    private userService: UserService,
+    private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.pokemonService.getAllPokemons();

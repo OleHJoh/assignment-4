@@ -1,1 +1,14 @@
-<p>pokemon-list-item works!</p>
+<li class="pokemon-list-item rounded shadow-sm">
+    <header>
+        <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.data.id + '.png'"
+        [alt]="pokemon.name" class="border rounded" width="250">
+    </header>
+
+    <div class="pokemon-item-detail">
+        <section class="pokemon-item-detail_text">
+            <span class="fs-5 d-block">
+                {{pokemon.name}}
+            </span>
+        </section>
+    </div>
+</li>

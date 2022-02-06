@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, map } from 'rxjs';
-import { Pokemon, PokemonResponse } from '../models/pokemon.model';
+import { finalize, map, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Pokemon, PokemonData, PokemonResponse } from '../models/pokemon.model';
 
-const URL = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
+const URL = environment.pokemonAPI
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,25 @@ export class PokemonService {
     )
     .subscribe({
       next: (pokemons: Pokemon[]) => {
+        for (let i = 0; i < pokemons.length; i++) {
+          this.getAllPokemonId(pokemons[i])
+        }
+        
         this._pokemons = pokemons
+      }
+    });
+  }
+
+  getAllPokemonId(pokemon: Pokemon): void {
+    this.http.get<PokemonData>(pokemon.url)
+    .pipe(
+      map((response: PokemonData) => {
+        return response
+      })
+    )
+    .subscribe({
+      next: (data: PokemonData) => {
+        pokemon.data = data
       }
     });
   }

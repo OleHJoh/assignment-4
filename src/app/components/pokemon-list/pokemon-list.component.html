@@ -1,6 +1,6 @@
-<ul>
-    <li *ngFor="let pokemon of pokemons" (click)="onPokemonClicked(pokemon)">
-        <img [src]="" [alt]="pokemon.name">
-        <span>{{ pokemon.name }}</span>
-    </li>
+<ul class="pokemon-list">
+    <app-pokemon-list-item
+    (click)="onPokemonClicked(pokemon)"
+    *ngFor="let pokemon of pokemons"
+    [pokemon]="pokemon"></app-pokemon-list-item>
 </ul>

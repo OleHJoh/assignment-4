@@ -12,7 +12,7 @@ const URL = environment.userAPI
 })
 export class UserService {
   private _username: string = '';
-  private _pokemons: PokemonCaptured[] =[];
+  private _pokemons: PokemonCaptured[] = [];
 
   get username(): string {
     return this._username;
@@ -41,6 +41,8 @@ export class UserService {
     .subscribe({
       next: (pokemons: PokemonCaptured[]) => {
         this._pokemons = pokemons
+        console.log(this._pokemons);
+        
       }
     })
   }

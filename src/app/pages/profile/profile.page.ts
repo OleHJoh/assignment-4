@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonCaptured } from 'src/app/models/user.model';
-import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,11 +18,12 @@ export class ProfilePage implements OnInit {
   }
 
   constructor(
-    private userService: UserService,
-    private pokemonService: PokemonService) { }
+    private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getUserData();
+    console.log(this.userService.pokemons);
+    
   }
 
 }

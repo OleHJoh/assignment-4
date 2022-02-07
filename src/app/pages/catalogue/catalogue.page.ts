@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
@@ -20,14 +21,22 @@ export class CataloguePage implements OnInit {
 
   constructor(
     private userService: UserService,
-    private pokemonService: PokemonService) { }
+    private pokemonService: PokemonService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.pokemonService.getAllPokemons();
+    this.ifPokemonEmpty();
   }
 
   onCaptured(pokemon: Pokemon){
-    alert(pokemon.name + " was clicked")
+    alert(pokemon.name + " was captured")
+  }
+
+  ifPokemonEmpty(){
+    if(this.pokemons.length === 0){
+      alert('The catalogue is empty!!!\nPlease login again');
+      this.router.navigateByUrl("");
+    }
   }
 
 }

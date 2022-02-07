@@ -15,9 +15,4 @@ export class PokemonListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCaptureClick(){
-    console.log("Pokemon captured");
-    
-  }
-
 }

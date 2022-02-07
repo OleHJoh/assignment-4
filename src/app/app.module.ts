@@ -10,6 +10,9 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
 import { ProfilePage } from './pages/profile/profile.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginPage } from './pages/login/login.page';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileListComponent } from './components/profile-list/profile-list.component';
+import { ProfileListItemComponent } from './components/profile-list-item/profile-list-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { LoginPage } from './pages/login/login.page';
     PokemonListItemComponent,
     ProfilePage,
     CataloguePage,
-    LoginPage
+    LoginPage,
+    NavbarComponent,
+    ProfileListComponent,
+    ProfileListItemComponent
   ],
   imports: [
     BrowserModule,

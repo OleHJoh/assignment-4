@@ -8,8 +8,12 @@ import { ProfilePage } from "./pages/profile/profile.page";
 const routes: Routes = [
     {
         path: "",
-        component: LoginPage,
-        pathMatch: "full"
+        pathMatch: "full",
+        redirectTo: "/login"
+    },
+    {
+        path: "login",
+        component: LoginPage
     },
     {
         path: "catalogue",

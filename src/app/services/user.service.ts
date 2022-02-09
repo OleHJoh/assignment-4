@@ -12,14 +12,19 @@ const URL = environment.userAPI
 })
 export class UserService {
   private _username: string = '';
-  private _pokemons: PokemonCaptured[] = [];
+  private _user: User = {
+    id: 0,
+    username: '',
+    pokemon: []
+
+  };
 
   get username(): string {
     return this._username;
   }
 
-  get pokemons(): PokemonCaptured[]{
-    return this._pokemons;
+  get user(): User{
+    return this._user;
   }
 
   set username(username: string) {
@@ -33,20 +38,11 @@ export class UserService {
 
   getUserData(): void{
     this.http.get<User>(`${URL}?username=${this.username}`)
-    .pipe(
-      map((response: User) => {
-        console.log(response);
-        
-        console.log(response.pokemon);
-        
-        return response.pokemon;
-      })
-    )
     .subscribe({
-      next: (pokemons: PokemonCaptured[]) => {
-        console.log(pokemons);
+      next: (user: User) => {
+        this._user = user;
+        console.log(this._user);
         
-        this._pokemons = pokemons;
       }
     });
   }

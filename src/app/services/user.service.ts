@@ -32,18 +32,22 @@ export class UserService {
   }
 
   getUserData(): void{
-    this.http.get<User>(`${URL}?username=${this._username}`)
+    this.http.get<User>(`${URL}?username=${this.username}`)
     .pipe(
       map((response: User) => {
-        return response.pokemon
+        console.log(response);
+        
+        console.log(response.pokemon);
+        
+        return response.pokemon;
       })
     )
     .subscribe({
       next: (pokemons: PokemonCaptured[]) => {
-        this._pokemons = pokemons
-        console.log(this._pokemons);
+        console.log(pokemons);
         
+        this._pokemons = pokemons;
       }
-    })
+    });
   }
 }

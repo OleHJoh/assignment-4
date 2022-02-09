@@ -25,18 +25,10 @@ export class CataloguePage implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.ifPokemonEmpty();
   }
 
   onCaptured(pokemon: Pokemon){
     alert(pokemon.name + " was captured")
-  }
-
-  ifPokemonEmpty(){
-    if(this.pokemons.length === 0){
-      alert('The catalogue is empty!!!\nPlease login again');
-      this.router.navigateByUrl("");
-    }
   }
 
 }

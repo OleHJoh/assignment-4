@@ -1,5 +1,5 @@
+//Imports components needed for the profile-list component
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-profile-list',
@@ -8,11 +8,8 @@ import { User } from 'src/app/models/user.model';
 })
 export class ProfileListComponent implements OnInit {
 
-  @Input() user: User = {
-    id: 0,
-    username: '',
-    pokemon: []
-  };
+  //Input from the mother component
+  @Input() pokemons: string[] = [];
 
   constructor() { }
 

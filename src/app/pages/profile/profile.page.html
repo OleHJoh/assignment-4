@@ -1,6 +1,8 @@
+<!-- The profile mother superior page it render the profile list and send it an object -->
 <main class="container">
     <h1>Trainer Page</h1>
     <h3>Welcome trainer {{username}} to your trainer page</h3>
     <p>Here is all the pokemon you have captured</p>
-    <app-profile-list [user]="user"></app-profile-list>
+    <p>{{user.username}}</p>
+    <app-profile-list [pokemons]="pokemons"></app-profile-list>
 </main>

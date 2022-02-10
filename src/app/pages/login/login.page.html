@@ -1,3 +1,5 @@
+<!-- The html code for the login page -->
+<!-- Has a from that the user filles out, and the form have criterias to be met for the user to submit it -->
 <main class="container">
   <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit(loginForm)">
     <fieldset class="mb-3">
@@ -15,17 +17,20 @@
       />
     </fieldset>
 
+    <!-- div container for the error messages -->
     <div
       id="usernameError"
       *ngIf="username.invalid && (username.touched || username.dirty)"
       class="alert alert-danger"
     >
+      <!-- another div container needed for for being able to see if the form error are true or false -->
       <div *ngIf="username.errors">
         <p class="mb-0" *ngIf="username.errors['required']">Username is required</p>
         <p class="mb-0" *ngIf="username.errors['minlength']">Username is to short (minimum 3)</p>
       </div>
     </div>
 
+    <!-- Submit button for the form, is clickable when the criterias for the form is met -->
     <button
       [disabled]="loginForm.invalid"
       type="submit"
@@ -33,5 +38,6 @@
     >
       Login
     </button>
+    <p>{{registerError}}</p>
   </form>
 </main>

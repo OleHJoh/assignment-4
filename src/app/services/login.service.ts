@@ -1,11 +1,14 @@
+//Imports the components needed for login service component
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap, of, tap, throwError } from 'rxjs';
 import { User } from '../models/user.model';
 import { environment } from 'src/environments/environment';
 
-
+//Gets the user api link from environment
 const URL = environment.userAPI;
+//Gets the user api key from environment
+const apiKey = environment.userApiKey;
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,7 @@ export class LoginService {
   createUser(username: string): Observable<User | undefined> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'x-api-key': 'CSlaVIi3bUG/pKzXsmZLqA==',
+      'x-api-key': apiKey,
     });
     // new user, id will be created on API
     // Initialize to an empty pokemon array.
@@ -52,12 +55,15 @@ export class LoginService {
     );
   }
 
+  //Runs checkUsername if the user exists
   login(username: string): Observable<User | undefined> {
     return this.checkUsername(username).pipe(
       switchMap((user: User | undefined) => {
+        //If he user doesn't exist runs createUser
         if (user === undefined) {
           return this.createUser(username);
         }
+        //If user exists returns the user, subscribe can be found in login.page.ts
         return of(user);
       })
     );

@@ -19,3 +19,8 @@ ng serve -o
 ## Author
 
 Ole Henrik Johansen
+
+## Flaws
+
+The profile page isn't functional, since the user object won't load correctly to the components
+Might be a flaw with it in the user service, or in the way the object gets fetch from the service

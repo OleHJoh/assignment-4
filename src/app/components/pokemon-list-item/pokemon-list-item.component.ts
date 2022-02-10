@@ -1,3 +1,4 @@
+//Imports components needed for the pokemon-list-item component
 import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 
@@ -8,7 +9,8 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 })
 export class PokemonListItemComponent implements OnInit {
 
-  @Input() pokemon!: Pokemon
+  //Input from the mother component
+  @Input() pokemon!: Pokemon;
 
   constructor() { }
 

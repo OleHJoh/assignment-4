@@ -1,5 +1,7 @@
+<!-- li html tag thats get rendered with a ngFor-loop in the mother component -->
 <li class="pokemon-list-item rounded shadow-sm">
     <header>
+        <!-- Gets elements from the typescript file, and inserts them into the codes -->
         <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png'"
         [alt]="pokemon.name" class="border rounded" width="250">
     </header>
